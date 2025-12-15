@@ -143,3 +143,22 @@ footer {
   font-size: 13px;
   opacity: 0.4;
 }
+
+/* =========================
+   CARDS AS BUTTONS
+========================= */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 40px rgba(255,255,255,0.25);
+}
+
