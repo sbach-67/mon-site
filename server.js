@@ -1,5 +1,19 @@
+require('dotenv').config();
+
+const express = require('express');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const path = require('path');
+const sqlite3 = require('sqlite3').verbose();
+
+const { router: authRoutes } = require('./auth');
+
+/* =========================
+   APP INIT (OBLIGATOIRE AVANT app.use)
+========================= */
+const app = express();
 
 /* =========================
    SECURITY
@@ -17,19 +31,6 @@ const limiter = rateLimit({
 });
 
 app.use(limiter);
-
-
-require('dotenv').config();
-
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const path = require('path');
-const sqlite3 = require('sqlite3').verbose();
-
-const { router: authRoutes } = require('./auth');
-
-const app = express();
 
 /* =========================
    DATABASE (SQLite)
@@ -50,9 +51,7 @@ app.locals.db = db;
    MIDDLEWARES
 ========================= */
 app.use(cors({
-  origin: [
-    'https://mon-site.onrender.com'
-  ],
+  origin: ['https://mon-site.onrender.com'],
   credentials: true
 }));
 
