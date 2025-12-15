@@ -1,3 +1,24 @@
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+
+/* =========================
+   SECURITY
+========================= */
+
+// Headers de sécurité
+app.use(helmet());
+
+// Anti brute-force / spam
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // 100 requêtes par IP
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+app.use(limiter);
+
+
 require('dotenv').config();
 
 const express = require('express');
@@ -28,7 +49,13 @@ app.locals.db = db;
 /* =========================
    MIDDLEWARES
 ========================= */
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://mon-site.onrender.com'
+  ],
+  credentials: true
+}));
+
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
 
