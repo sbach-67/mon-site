@@ -1,19 +1,18 @@
 
 Ouvre CMD dans TON PROJET
-cd C:\Users\badou\Downloads\JV_SB_SOSO_MANAGEUR
+1 cd C:\Users\badou\Downloads\JV_SB_SOSO_MANAGEUR
 
 
-Vérifier les fichiers modifiés
-git status
+2 dir
 
 
-Ajouter les fichiers modifiés
-git add index.html style.css
+3 git add .
 
 
-Commit (message clair)
-git commit -m "Improve homepage style and add social media buttons"
+4 git status
 
 
-Push vers GitHub (déclenche Render)
-git push
+5 git commit -m "Make service cards clickable and add future article pages"
+
+
+6 git push origin main

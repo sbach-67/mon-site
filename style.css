@@ -198,4 +198,114 @@ footer {
   box-shadow: 0 0 40px rgba(0, 112, 186, 0.9);
 }
 
+/* =========================
+   PRICING PAGE
+========================= */
+.pricing {
+  margin: 80px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.pricing-image {
+  max-width: 90%;
+  width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 200, 255, 0.35);
+}
+
+/* PAYPAL BUTTON */
+.paypal-btn {
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(45deg, #0070ba, #003087);
+  box-shadow: 0 0 25px rgba(0, 112, 186, 0.6);
+  transition: 0.3s ease;
+}
+
+.paypal-btn i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.paypal-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 40px rgba(0, 112, 186, 0.9);
+}
+
+/* BACK BUTTON */
+.back-btn {
+  padding: 14px 35px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(45deg, #444, #222);
+  box-shadow: 0 0 20px rgba(255,255,255,0.15);
+  transition: 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 35px rgba(255,255,255,0.35);
+}
+
+/* =========================
+   THANK YOU PAGE
+========================= */
+.thank-you {
+  margin: 80px auto;
+  max-width: 600px;
+  padding: 0 20px;
+}
+
+.thank-you p {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.thank-actions {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* SUCCESS ICON */
+.success-icon {
+  font-size: 80px;
+  color: #00ff9c;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 20px rgba(0,255,156,0.6));
+}
+
+/* DISCORD BUTTON */
+.discord-btn {
+  padding: 14px 35px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(45deg, #5865F2, #404eed);
+  box-shadow: 0 0 25px rgba(88, 101, 242, 0.6);
+  transition: 0.3s ease;
+}
+
+.discord-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 40px rgba(88, 101, 242, 0.9);
+}
+
+
+
 
