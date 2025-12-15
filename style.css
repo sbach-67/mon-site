@@ -1,84 +1,47 @@
-* {
-  box-sizing: border-box;
-}
+/* =========================
+   SOCIAL BUTTONS
+========================= */
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: radial-gradient(circle at top, #111, #000);
-  color: #fff;
-  text-align: center;
-}
-
-/* HEADER */
-.header {
-  padding: 60px 20px;
-}
-
-.logo {
-  width: 130px;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 15px #00c3ff);
-}
-
-.header h1 {
-  font-size: 42px;
-  margin: 10px 0;
-  text-shadow: 0 0 20px #00c3ff;
-}
-
-.header p {
-  opacity: 0.7;
-}
-
-/* CATEGORIES */
-.categories {
+.social-links {
+  margin-top: 35px;
   display: flex;
   justify-content: center;
+  gap: 20px;
   flex-wrap: wrap;
-  gap: 40px;
-  padding: 60px 20px;
 }
 
-.card {
-  width: 280px;
-  padding: 35px 25px;
-  border-radius: 18px;
-  background: #0d0d0d;
+.social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
   transition: 0.3s;
-  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255,255,255,0.15);
 }
 
-.card h2 {
-  margin-bottom: 15px;
+.social i {
+  font-size: 22px;
 }
 
-.card p {
-  line-height: 1.6;
-  opacity: 0.85;
+/* COULEURS RÉSEAUX */
+.youtube {
+  background: linear-gradient(45deg, #ff0000, #c40000);
 }
 
-/* NÉONS */
-.blue {
-  box-shadow: 0 0 30px #00b7ff;
+.tiktok {
+  background: linear-gradient(45deg, #00f2ea, #ff0050);
 }
 
-.red {
-  box-shadow: 0 0 30px #ff003c;
+.discord {
+  background: linear-gradient(45deg, #5865F2, #404eed);
 }
 
-.purple {
-  box-shadow: 0 0 30px #5e5e5e;
-}
-
-.card:hover {
-  transform: scale(1.06);
-  box-shadow: 0 0 45px currentColor;
-}
-
-/* FOOTER */
-footer {
-  padding: 30px;
-  font-size: 14px;
-  opacity: 0.5;
+.social:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px currentColor;
 }
