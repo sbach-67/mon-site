@@ -1,0 +1,19 @@
+### Instruction de Demarrage et Installation Site WEB ###
+
+
+
+1 cd C:\Users\badou\Downloads\JV_SB_SOSO_MANAGEUR
+
+2 npm init -y
+
+3 npm install express cors body-parser bcrypt jsonwebtoken
+
+4 node server.js
+
+5 et 6 derniere Etape
+
+5 cd C:\Users\badou\Downloads\JV_SB_SOSO_MANAGEUR
+
+6 npm install
+
+7 npm start
