@@ -306,6 +306,17 @@ footer {
   box-shadow: 0 0 40px rgba(88, 101, 242, 0.9);
 }
 
+/* SEPARATOR BETWEEN PRICING FORMULAS */
+.pricing-separator {
+  width: 60%;
+  max-width: 400px;
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+  margin: 40px auto;
+}
+
+
 
 
 

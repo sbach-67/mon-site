@@ -1,6 +1,6 @@
 
 Ouvre CMD dans TON PROJET
-1 cd C:\Users\badou\Downloads\JV_SB_SOSO_MANAGEUR
+1 cd C:\Users\badou\Desktop\JV_SB_SOSO_MANAGEUR
 
 
 2 dir
