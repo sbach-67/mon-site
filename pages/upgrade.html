@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+  <video id="background-video" autoplay loop muted playsinline>
+    <source src="../video/video1.mp4" type="video/mp4">
+  </video>
 
 <header class="header">
   <h1>Upgrade Communauté</h1>
@@ -32,5 +35,23 @@
   <p>© 2025/2026 • JV.SB x SOSO MANAGEUR</p>
 </footer>
 
+<script>
+  // Activer le son de la vidéo après une interaction utilisateur
+  const video = document.getElementById('background-video');
+  let soundActivated = false;
+
+  function activateSound() {
+    if (!soundActivated && video) {
+      video.muted = false;
+      soundActivated = true;
+    }
+  }
+
+  // Activer le son au premier clic, scroll ou touch
+  document.addEventListener('click', activateSound, { once: true });
+  document.addEventListener('scroll', activateSound, { once: true });
+  document.addEventListener('touchstart', activateSound, { once: true });
+  document.addEventListener('keydown', activateSound, { once: true });
+</script>
 </body>
 </html>
