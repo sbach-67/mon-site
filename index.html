@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <video id="background-video" autoplay loop playsinline>
+  <video id="background-video" autoplay loop muted playsinline>
     <source src="video/video1.mp4" type="video/mp4">
   </video>
 
@@ -76,5 +76,23 @@
 </footer>
 
 <script src="scroll.js"></script>
+<script>
+  // Activer le son de la vidéo après une interaction utilisateur
+  const video = document.getElementById('background-video');
+  let soundActivated = false;
+
+  function activateSound() {
+    if (!soundActivated && video) {
+      video.muted = false;
+      soundActivated = true;
+    }
+  }
+
+  // Activer le son au premier clic, scroll ou touch
+  document.addEventListener('click', activateSound, { once: true });
+  document.addEventListener('scroll', activateSound, { once: true });
+  document.addEventListener('touchstart', activateSound, { once: true });
+  document.addEventListener('keydown', activateSound, { once: true });
+</script>
 </body>
 </html>
