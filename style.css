@@ -104,16 +104,19 @@ body::before {
    CARDS + SCROLL ANIMATION
 ========================= */
 .categories {
-  margin: 90px auto;
+  position: absolute;
+  top: 20px;
+  right: 20px;
   display: flex;
-  justify-content: center;
-  gap: 45px;
+  justify-content: flex-end;
+  gap: 20px;
   flex-wrap: wrap;
+  z-index: 10;
 }
 
 .card {
-  width: 260px;
-  padding: 35px 25px;
+  width: 200px;
+  padding: 25px 20px;
   background: rgba(15,15,15,0.9);
   border-radius: 20px;
   backdrop-filter: blur(10px);
