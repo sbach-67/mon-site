@@ -110,6 +110,9 @@ body::before {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   will-change: transform;
+  pointer-events: auto;
+  z-index: 1001;
+  position: relative;
 }
 
 .accordion-btn:hover {
@@ -143,7 +146,8 @@ body::before {
   transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
               opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              visibility 0.3s;
+              visibility 0.3s,
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 0;
   min-width: 250px;
   background: rgba(15, 15, 15, 0.95);
@@ -152,6 +156,7 @@ body::before {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   transform: translateY(-10px);
   will-change: max-height, opacity, transform;
+  pointer-events: none;
 }
 
 .accordion-content.active {
@@ -161,6 +166,7 @@ body::before {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* =========================
@@ -274,7 +280,11 @@ footer {
 .card-link {
   text-decoration: none;
   color: inherit;
-  display: inline-block;
+  display: block;
+  width: 100%;
+  pointer-events: auto;
+  z-index: 10;
+  position: relative;
 }
 
 /* =========================
