@@ -2,16 +2,23 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Solutions premium pour vos serveurs FiveM">
   <title>JV.SB x SOSO MANAGEUR</title>
 
+  <!-- Preconnect pour améliorer les performances -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
   <!-- Icônes réseaux -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
   <!-- Style principal -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <video id="background-video" autoplay loop muted playsinline>
+  <video id="background-video" autoplay loop muted playsinline preload="metadata" poster="">
     <source src="video/video1.mp4" type="video/mp4">
   </video>
 
@@ -94,22 +101,35 @@
 <script src="scroll.js"></script>
 <script src="accordions.js"></script>
 <script>
-  // Activer le son de la vidéo après une interaction utilisateur
-  const video = document.getElementById('background-video');
-  let soundActivated = false;
+  // Activer le son de la vidéo après une interaction utilisateur - Optimisé
+  (function() {
+    'use strict';
+    const video = document.getElementById('background-video');
+    let soundActivated = false;
 
-  function activateSound() {
-    if (!soundActivated && video) {
-      video.muted = false;
-      soundActivated = true;
+    function activateSound() {
+      if (!soundActivated && video) {
+        video.muted = false;
+        soundActivated = true;
+      }
     }
-  }
 
-  // Activer le son au premier clic, scroll ou touch
-  document.addEventListener('click', activateSound, { once: true });
-  document.addEventListener('scroll', activateSound, { once: true });
-  document.addEventListener('touchstart', activateSound, { once: true });
-  document.addEventListener('keydown', activateSound, { once: true });
+    // Activer le son au premier clic, scroll ou touch (avec passive pour performance)
+    document.addEventListener('click', activateSound, { once: true, passive: true });
+    document.addEventListener('scroll', activateSound, { once: true, passive: true });
+    document.addEventListener('touchstart', activateSound, { once: true, passive: true });
+    document.addEventListener('keydown', activateSound, { once: true });
+    
+    // Optimiser la vidéo pour les performances
+    if (video) {
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+      // Réduire la qualité si nécessaire pour les performances
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        video.pause();
+      }
+    }
+  })();
 </script>
 </body>
 </html>
