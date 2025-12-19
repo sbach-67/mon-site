@@ -21,7 +21,7 @@
       servicesBtn.addEventListener('click', handleServicesClick, { passive: false });
     }
 
-    // Fermer les accordéons si on clique en dehors (avec debounce)
+    // Fermer les accordéons si on clique en dehors
     clickOutsideHandler = function(e) {
       if (!e.target.closest('.accordions-container')) {
         closeAll();
