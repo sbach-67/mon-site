@@ -15,12 +15,9 @@
     <source src="video/video1.mp4" type="video/mp4">
   </video>
 
-<header class="header">
-  <h1>JV.SB x SOSO MANAGEUR</h1>
-  <p>Solutions premium pour vos serveurs FiveM</p>
-
+<div class="accordions-container">
   <div class="accordion">
-    <button class="accordion-btn" id="social-accordion">
+    <button class="accordion-btn" id="social-accordion" type="button">
       <i class="fa-solid fa-share-nodes"></i> Réseaux sociaux
       <i class="fa-solid fa-chevron-down accordion-icon"></i>
     </button>
@@ -40,11 +37,9 @@
       </div>
     </div>
   </div>
-</header>
 
-<section class="services-section">
   <div class="accordion">
-    <button class="accordion-btn" id="services-accordion">
+    <button class="accordion-btn" id="services-accordion" type="button">
       <i class="fa-solid fa-briefcase"></i> Nos services
       <i class="fa-solid fa-chevron-down accordion-icon"></i>
     </button>
@@ -85,7 +80,12 @@
       </div>
     </div>
   </div>
-</section>
+</div>
+
+<header class="header">
+  <h1>JV.SB x SOSO MANAGEUR</h1>
+  <p>Solutions premium pour vos serveurs FiveM</p>
+</header>
 
 <footer>
   <p>© 2025/2026 • JV.SB x SOSO MANAGEUR • Tous droits réservés</p>
@@ -93,42 +93,46 @@
 
 <script src="scroll.js"></script>
 <script>
-  // Activer le son de la vidéo après une interaction utilisateur
-  const video = document.getElementById('background-video');
-  let soundActivated = false;
+  document.addEventListener('DOMContentLoaded', function() {
+    // Activer le son de la vidéo après une interaction utilisateur
+    const video = document.getElementById('background-video');
+    let soundActivated = false;
 
-  function activateSound() {
-    if (!soundActivated && video) {
-      video.muted = false;
-      soundActivated = true;
+    function activateSound() {
+      if (!soundActivated && video) {
+        video.muted = false;
+        soundActivated = true;
+      }
     }
-  }
 
-  // Activer le son au premier clic, scroll ou touch
-  document.addEventListener('click', activateSound, { once: true });
-  document.addEventListener('scroll', activateSound, { once: true });
-  document.addEventListener('touchstart', activateSound, { once: true });
-  document.addEventListener('keydown', activateSound, { once: true });
+    // Activer le son au premier clic, scroll ou touch
+    document.addEventListener('click', activateSound, { once: true });
+    document.addEventListener('scroll', activateSound, { once: true });
+    document.addEventListener('touchstart', activateSound, { once: true });
+    document.addEventListener('keydown', activateSound, { once: true });
 
-  // Gestion des accordéons (volets)
-  const socialAccordion = document.getElementById('social-accordion');
-  const socialContent = document.getElementById('social-content');
-  const servicesAccordion = document.getElementById('services-accordion');
-  const servicesContent = document.getElementById('services-content');
+    // Gestion des accordéons (volets)
+    const socialAccordion = document.getElementById('social-accordion');
+    const socialContent = document.getElementById('social-content');
+    const servicesAccordion = document.getElementById('services-accordion');
+    const servicesContent = document.getElementById('services-content');
 
-  if (socialAccordion && socialContent) {
-    socialAccordion.addEventListener('click', () => {
-      socialAccordion.classList.toggle('active');
-      socialContent.classList.toggle('active');
-    });
-  }
+    if (socialAccordion && socialContent) {
+      socialAccordion.addEventListener('click', function(e) {
+        e.stopPropagation();
+        socialAccordion.classList.toggle('active');
+        socialContent.classList.toggle('active');
+      });
+    }
 
-  if (servicesAccordion && servicesContent) {
-    servicesAccordion.addEventListener('click', () => {
-      servicesAccordion.classList.toggle('active');
-      servicesContent.classList.toggle('active');
-    });
-  }
+    if (servicesAccordion && servicesContent) {
+      servicesAccordion.addEventListener('click', function(e) {
+        e.stopPropagation();
+        servicesAccordion.classList.toggle('active');
+        servicesContent.classList.toggle('active');
+      });
+    }
+  });
 </script>
 </body>
 </html>
