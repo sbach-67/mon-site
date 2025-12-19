@@ -92,80 +92,24 @@
 </footer>
 
 <script src="scroll.js"></script>
+<script src="accordions.js"></script>
 <script>
-  (function() {
-    'use strict';
-    
-    // Activer le son de la vidéo après une interaction utilisateur
-    const video = document.getElementById('background-video');
-    let soundActivated = false;
+  // Activer le son de la vidéo après une interaction utilisateur
+  const video = document.getElementById('background-video');
+  let soundActivated = false;
 
-    function activateSound(e) {
-      // Ne pas activer le son si on clique sur un bouton accordéon
-      if (e && e.target && (e.target.closest('.accordion-btn') || e.target.closest('.accordion-content'))) {
-        return;
-      }
-      if (!soundActivated && video) {
-        video.muted = false;
-        soundActivated = true;
-      }
+  function activateSound() {
+    if (!soundActivated && video) {
+      video.muted = false;
+      soundActivated = true;
     }
+  }
 
-    // Gestion des accordéons (volets) - doit être exécuté immédiatement
-    function initAccordions() {
-      const socialAccordion = document.getElementById('social-accordion');
-      const socialContent = document.getElementById('social-content');
-      const servicesAccordion = document.getElementById('services-accordion');
-      const servicesContent = document.getElementById('services-content');
-
-      if (socialAccordion && socialContent) {
-        socialAccordion.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          const isActive = socialAccordion.classList.contains('active');
-          socialAccordion.classList.toggle('active');
-          socialContent.classList.toggle('active');
-          
-          // Fermer l'autre accordéon si ouvert
-          if (!isActive && servicesAccordion && servicesContent) {
-            servicesAccordion.classList.remove('active');
-            servicesContent.classList.remove('active');
-          }
-        }, false);
-      }
-
-      if (servicesAccordion && servicesContent) {
-        servicesAccordion.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          const isActive = servicesAccordion.classList.contains('active');
-          servicesAccordion.classList.toggle('active');
-          servicesContent.classList.toggle('active');
-          
-          // Fermer l'autre accordéon si ouvert
-          if (!isActive && socialAccordion && socialContent) {
-            socialAccordion.classList.remove('active');
-            socialContent.classList.remove('active');
-          }
-        }, false);
-      }
-    }
-
-    // Initialiser immédiatement si le DOM est déjà chargé
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initAccordions);
-    } else {
-      initAccordions();
-    }
-
-    // Activer le son au premier clic, scroll ou touch (après initialisation)
-    setTimeout(function() {
-      document.addEventListener('click', activateSound, { once: true, passive: true });
-      document.addEventListener('scroll', activateSound, { once: true, passive: true });
-      document.addEventListener('touchstart', activateSound, { once: true, passive: true });
-      document.addEventListener('keydown', activateSound, { once: true });
-    }, 100);
-  })();
+  // Activer le son au premier clic, scroll ou touch
+  document.addEventListener('click', activateSound, { once: true });
+  document.addEventListener('scroll', activateSound, { once: true });
+  document.addEventListener('touchstart', activateSound, { once: true });
+  document.addEventListener('keydown', activateSound, { once: true });
 </script>
 </body>
 </html>
