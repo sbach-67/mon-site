@@ -67,10 +67,65 @@ body::before {
 }
 
 /* =========================
+   ACCORDION / VOLETS
+========================= */
+.accordion {
+  margin-top: 35px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.accordion-btn {
+  width: 100%;
+  padding: 16px 25px;
+  background: rgba(15, 15, 15, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.accordion-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+  font-size: 14px;
+}
+
+.accordion-btn.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+  padding: 0;
+}
+
+.accordion-content.active {
+  max-height: 1000px;
+  padding: 20px 0;
+}
+
+/* =========================
    SOCIAL BUTTONS
 ========================= */
 .social-links {
-  margin-top: 35px;
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -101,14 +156,25 @@ body::before {
 .discord { background: linear-gradient(45deg, #5865F2, #404eed); }
 
 /* =========================
+   SERVICES SECTION
+========================= */
+.services-section {
+  margin: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.services-section .accordion {
+  max-width: 900px;
+  width: 100%;
+}
+
+/* =========================
    CARDS + SCROLL ANIMATION
 ========================= */
 .categories {
-  position: absolute;
-  top: 20px;
-  right: 20px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
   z-index: 10;
@@ -123,11 +189,17 @@ body::before {
   opacity: 0;
   transform: translateY(40px);
   transition: 0.6s ease;
+  cursor: pointer;
 }
 
 .card.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 40px rgba(255,255,255,0.25);
 }
 
 .blue {
@@ -164,51 +236,6 @@ footer {
   display: inline-block;
 }
 
-.card {
-  cursor: pointer;
-}
-
-.card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 0 40px rgba(255,255,255,0.25);
-}
-
-/* =========================
-   PRICING PAGE
-========================= */
-.pricing {
-  margin: 80px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 35px;
-}
-
-.pricing-image {
-  max-width: 90%;
-  width: 500px;
-  border-radius: 20px;
-  box-shadow: 0 0 40px rgba(0, 200, 255, 0.35);
-}
-
-/* PAYPAL BUTTON */
-.paypal-btn {
-  padding: 16px 40px;
-  border-radius: 50px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-  background: linear-gradient(45deg, #0070ba, #003087);
-  box-shadow: 0 0 25px rgba(0, 112, 186, 0.6);
-  transition: 0.3s ease;
-}
-
-.paypal-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 40px rgba(0, 112, 186, 0.9);
-}
-
 /* =========================
    PRICING PAGE
 ========================= */
@@ -227,7 +254,6 @@ footer {
   box-shadow: 0 0 40px rgba(0, 200, 255, 0.35);
 }
 
-/* PAYPAL BUTTON */
 .paypal-btn {
   padding: 16px 40px;
   border-radius: 50px;
@@ -326,8 +352,3 @@ footer {
   background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
   margin: 40px auto;
 }
-
-
-
-
-
