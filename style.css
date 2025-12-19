@@ -16,6 +16,8 @@ body {
   text-align: center;
   overflow-x: hidden;
   position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Video background */
@@ -28,6 +30,8 @@ body {
   object-fit: cover;
   z-index: -2;
   opacity: 0.3;
+  will-change: opacity;
+  transform: translateZ(0);
 }
 
 /* Animated neon background */
@@ -77,6 +81,7 @@ body::before {
   flex-direction: column;
   gap: 10px;
   z-index: 1000;
+  will-change: transform;
 }
 
 .accordion {
@@ -98,10 +103,13 @@ body::before {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   white-space: nowrap;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform;
 }
 
 .accordion-btn:hover {
@@ -110,9 +118,14 @@ body::before {
   border-color: rgba(255, 255, 255, 0.4);
 }
 
+.accordion-btn:active {
+  transform: scale(0.98);
+}
+
 .accordion-icon {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 14px;
+  will-change: transform;
 }
 
 .accordion-btn.active .accordion-icon {
@@ -121,24 +134,33 @@ body::before {
 
 .accordion-content {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 10px);
   right: 0;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+  opacity: 0;
+  visibility: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.3s;
   padding: 0;
-  margin-top: 10px;
   min-width: 250px;
   background: rgba(15, 15, 15, 0.95);
   border-radius: 15px;
   backdrop-filter: blur(10px);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(-10px);
+  will-change: max-height, opacity, transform;
 }
 
 .accordion-content.active {
   max-height: 1000px;
   padding: 15px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 /* =========================
@@ -162,13 +184,14 @@ body::before {
   font-weight: bold;
   color: #fff;
   text-decoration: none;
-  transition: 0.3s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 0 20px rgba(255,255,255,0.15);
   width: 100%;
+  will-change: transform;
 }
 
 .social:hover {
-  transform: scale(1.08);
+  transform: scale(1.05);
   box-shadow: 0 0 35px currentColor;
 }
 
@@ -195,8 +218,9 @@ body::before {
   backdrop-filter: blur(10px);
   opacity: 1;
   transform: translateY(0);
-  transition: 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  will-change: transform;
 }
 
 .card.show {
