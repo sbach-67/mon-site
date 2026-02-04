@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Solutions premium pour vos serveurs FiveM">
-  <title>JV.SB x SOSO MANAGEUR</title>
+  <meta name="description" content="Documentation officielle JV.SB CREATION pour votre boutique Tebex">
+  <title>JV.SB CREATION • Documentation</title>
 
   <!-- Preconnect pour améliorer les performances -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -21,84 +21,192 @@
     <source src="video/video1.mp4" type="video/mp4">
   </video>
 
-<div class="accordions-container">
-  <div class="accordion">
-    <button class="accordion-btn" id="social-accordion" type="button">
-      <i class="fa-solid fa-share-nodes"></i> Réseaux sociaux
-      <i class="fa-solid fa-chevron-down accordion-icon"></i>
-    </button>
-    <div class="accordion-content" id="social-content">
-      <div class="social-links">
-        <a href="https://www.youtube.com/@JV_SB" target="_blank" class="social youtube">
-          <i class="fa-brands fa-youtube"></i> YouTube
-        </a>
-
-        <a href="https://www.tiktok.com/@adz13.835b" target="_blank" class="social tiktok">
-          <i class="fa-brands fa-tiktok"></i> TikTok
-        </a>
-
-        <a href="https://discord.gg/kWbMNZxAMj" target="_blank" class="social discord">
-          <i class="fa-brands fa-discord"></i> Discord
-        </a>
+<div class="page">
+  <header class="topbar">
+    <div class="brand">
+      <img src="images/logo.png" alt="Logo JV.SB CREATION" class="brand-logo">
+      <div class="brand-text">
+        <span class="brand-title">JV.SB CREATION</span>
+        <span class="brand-subtitle">Documentation Tebex</span>
       </div>
     </div>
-  </div>
 
-  <div class="accordion">
-    <button class="accordion-btn" id="services-accordion" type="button">
-      <i class="fa-solid fa-briefcase"></i> Nos services
-      <i class="fa-solid fa-chevron-down accordion-icon"></i>
-    </button>
-    <div class="accordion-content" id="services-content">
-      <div class="categories">
-        <a href="pages/upgrade.html" class="card-link">
-          <div class="card blue">
-            <h2>Upgrade Communauté</h2>
-            <p>
-              Des Formules<br>
-              pour Upgrade<br>
-              ta Communauté en jeux & sur les Reseaux !
-            </p>
-          </div>
-        </a>
-
-        <a href="pages/fivem.html" class="card-link">
-          <div class="card red">
-            <h2>Développement FiveM</h2>
-            <p>
-              Scripts sur Mesure<br>
-              Formule Mensuel ou a la Carte<br>
-              Developpement Certififer Pro pour ton Serveur FiveM !
-            </p>
-          </div>
-        </a>
-
-        <a href="pages/pack-ultime.html" class="card-link">
-          <div class="card purple">
-            <h2>Pack Ultime</h2>
-            <p>
-              Upgrade Communauté<br>
-              + Développement FiveM<br>
-              Solution complète
-            </p>
-          </div>
-        </a>
-      </div>
+    <div class="search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input id="search-input" type="text" placeholder="Rechercher une doc, un script, une catégorie...">
     </div>
+
+    <div class="top-actions">
+      <a class="btn ghost" href="https://discord.gg/kWbMNZxAMj" target="_blank" rel="noreferrer">
+        <i class="fa-brands fa-discord"></i> Support
+      </a>
+      <a class="btn primary" href="https://jv-sb.tebex.io/" target="_blank" rel="noreferrer">
+        <i class="fa-solid fa-cart-shopping"></i> Boutique Tebex
+      </a>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <h3>Documentation</h3>
+        <nav class="nav">
+          <a href="#" class="nav-item active"><i class="fa-solid fa-book"></i> Bienvenue</a>
+          <a href="#" class="nav-item"><i class="fa-solid fa-plug"></i> Installation</a>
+          <a href="#" class="nav-item"><i class="fa-solid fa-gear"></i> Configuration</a>
+          <a href="#" class="nav-item"><i class="fa-solid fa-code"></i> Exports & API</a>
+          <a href="#" class="nav-item"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+        </nav>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Catégories</h3>
+        <nav class="nav">
+          <a href="#produits" class="nav-item"><i class="fa-solid fa-gamepad"></i> Scripts FiveM</a>
+          <a href="#produits" class="nav-item"><i class="fa-solid fa-palette"></i> UI & HUD</a>
+          <a href="#produits" class="nav-item"><i class="fa-solid fa-briefcase"></i> Jobs RP</a>
+          <a href="#produits" class="nav-item"><i class="fa-solid fa-shield-halved"></i> Sécurité</a>
+          <a href="#produits" class="nav-item"><i class="fa-solid fa-wand-magic-sparkles"></i> Packs & Premium</a>
+        </nav>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Réseaux</h3>
+        <div class="social-links">
+          <a href="https://www.youtube.com/@JV_SB" target="_blank" class="social youtube">
+            <i class="fa-brands fa-youtube"></i> YouTube
+          </a>
+          <a href="https://www.tiktok.com/@adz13.835b" target="_blank" class="social tiktok">
+            <i class="fa-brands fa-tiktok"></i> TikTok
+          </a>
+          <a href="https://discord.gg/kWbMNZxAMj" target="_blank" class="social discord">
+            <i class="fa-brands fa-discord"></i> Discord
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="hero">
+        <div class="hero-text">
+          <span class="pill">Boutique Tebex • JV.SB CREATION</span>
+          <h1>Documentation officielle</h1>
+          <p>
+            Guides clairs, exports, configurations et mises à jour pour vos produits Tebex.
+            Tout est organisé par catégories pour aller vite.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="https://jv-sb.tebex.io/" target="_blank" rel="noreferrer">
+              Accéder à la boutique
+            </a>
+            <a class="btn ghost" href="pages/merci.html">
+              Voir les nouveautés
+            </a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-title">Ressources rapides</div>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Installation express</li>
+            <li><i class="fa-solid fa-check"></i> Checklist de mise en ligne</li>
+            <li><i class="fa-solid fa-check"></i> Compatibilités ESX / QBCore</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="doc-grid" id="produits">
+        <article class="doc-card">
+          <span class="tag">Script ESX</span>
+          <h2>JV.SB IPTV</h2>
+          <p>Script IPTV ESX pour une expérience immersive.</p>
+          <a href="pages/jv-sb-iptv.html" class="card-link">Lire la doc</a>
+        </article>
+        <article class="doc-card">
+          <span class="tag">Script ESX</span>
+          <h2>JV.SB_FourDriveDrogue</h2>
+          <p>Gestion FourDrive pour activités illégales.</p>
+          <a href="pages/jv-sb-fourdrivedrogue.html" class="card-link">Lire la doc</a>
+        </article>
+        <article class="doc-card">
+          <span class="tag">Script ESX</span>
+          <h2>JV_SB Gangs-Builder</h2>
+          <p>Création et gestion avancée des gangs.</p>
+          <a href="pages/jv-sb-gangs-builder.html" class="card-link">Lire la doc</a>
+        </article>
+        <article class="doc-card">
+          <span class="tag">Script ESX</span>
+          <h2>JV_SB Pause Menu V1</h2>
+          <p>Menu pause personnalisé et stylisé.</p>
+          <a href="pages/jv-sb-pause-menu-v1.html" class="card-link">Lire la doc</a>
+        </article>
+        <article class="doc-card">
+          <span class="tag">Script ESX</span>
+          <h2>JV_SB Concess Builder</h2>
+          <p>Création de concessionnaires et workflows.</p>
+          <a href="pages/jv-sb-concess-builder.html" class="card-link">Lire la doc</a>
+        </article>
+        <article class="doc-card">
+          <span class="tag">Script ESX</span>
+          <h2>JV_SB GOFAST Narcolancha</h2>
+          <p>GOFAST maritime et logistique narco.</p>
+          <a href="pages/jv-sb-gofast-narcolancha.html" class="card-link">Lire la doc</a>
+        </article>
+        <article class="doc-card">
+          <span class="tag">Script ESX</span>
+          <h2>JV_SB_HandlingPro</h2>
+          <p>Réglages handling pro pour véhicules.</p>
+          <a href="pages/jv-sb-handlingpro.html" class="card-link">Lire la doc</a>
+        </article>
+        <article class="doc-card">
+          <span class="tag">Script ESX</span>
+          <h2>JV_SB Guetteur</h2>
+          <p>Système de guetteur et alertes dynamiques.</p>
+          <a href="pages/jv-sb-guetteur.html" class="card-link">Lire la doc</a>
+        </article>
+        <article class="doc-card">
+          <span class="tag">Dépendance</span>
+          <h2>JV_SB Lib</h2>
+          <p>Librairie nécessaire pour vos scripts JV.SB.</p>
+          <a href="pages/jv-sb-lib.html" class="card-link">Lire la doc</a>
+        </article>
+      </section>
+      <div id="search-empty" class="empty-state is-hidden">
+        Aucun résultat. Essayez un autre mot-clé.
+      </div>
+
+      <section class="doc-list">
+        <h2>Guides populaires</h2>
+        <div class="list">
+          <div class="list-item">
+            <i class="fa-solid fa-file-lines"></i>
+            <div>
+              <strong>Checklist avant ouverture serveur</strong>
+              <span>Dépendances, permissions, confs et checklist Tebex.</span>
+            </div>
+          </div>
+          <div class="list-item">
+            <i class="fa-solid fa-file-lines"></i>
+            <div>
+              <strong>Optimisations performances</strong>
+              <span>Réduire l’impact CPU / RAM des scripts.</span>
+            </div>
+          </div>
+          <div class="list-item">
+            <i class="fa-solid fa-file-lines"></i>
+            <div>
+              <strong>FAQ intégration Tebex</strong>
+              <span>Licences, accès et activation des produits.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
 </div>
 
-<header class="header">
-  <h1>JV.SB x SOSO MANAGEUR</h1>
-  <p>Solutions premium pour vos serveurs FiveM</p>
-</header>
-
 <footer>
-  <p>© 2025/2026 • JV.SB x SOSO MANAGEUR • Tous droits réservés</p>
+  <p>© 2026 • JV.SB CREATION • Tous droits réservés</p>
 </footer>
-
-<script src="scroll.js"></script>
-<script src="accordions.js"></script>
 <script>
   // Activer le son de la vidéo après une interaction utilisateur - Optimisé
   (function() {
@@ -130,5 +238,6 @@
     }
   })();
 </script>
+<script src="search.js"></script>
 </body>
 </html>
