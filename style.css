@@ -514,6 +514,14 @@ footer {
   gap: 12px;
 }
 
+.faq-image {
+  width: min(520px, 100%);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  display: block;
+  margin: 0 auto;
+}
+
 /* =========================
    RESPONSIVE
 ========================= */
