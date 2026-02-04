@@ -453,6 +453,18 @@ body::before {
   color: var(--muted);
 }
 
+.list-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.btn.small {
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
 .external-icon {
   font-size: 12px;
   color: var(--muted);
