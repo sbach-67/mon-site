@@ -80,6 +80,222 @@
           </div>
 
           <div class="doc-section">
+            <h3>Configuration (aperçu)</h3>
+            <details class="config-preview">
+              <summary>Voir le fichier config.lua</summary>
+              <pre><code>Config = {}
+
+-- ============================================
+-- CONFIGURATION DU LOGO
+-- ============================================
+-- Lien de votre logo (vous pouvez le modifier ici)
+Config.LogoURL = "https://zupimages.net/up/25/47/f2eb.png"
+
+-- ============================================
+-- CONFIGURATION DE LA BARRE AUDIO
+-- ============================================
+-- Activer ou désactiver la barre audio dans le menu pause
+-- true = activé, false = désactivé
+Config.EnableAudioBar = true
+
+-- ============================================
+-- CONFIGURATION DES MUSIQUES
+-- ============================================
+-- Choisir quelles musiques jouer
+-- Options disponibles :
+--   "all" = jouer toutes les musiques (1, 2, 3)
+--   "1" = jouer uniquement la musique 1
+--   "2" = jouer uniquement la musique 2
+--   "3" = jouer uniquement la musique 3
+--   "1,2" = jouer les musiques 1 et 2
+--   "1,3" = jouer les musiques 1 et 3
+--   "2,3" = jouer les musiques 2 et 3
+--   "1,2,3" = jouer toutes les musiques (équivalent à "all")
+Config.MusicTracks = "all"  -- Par défaut, toutes les musiques sont jouées
+
+-- ============================================
+-- CONFIGURATION DE LA SECTION INFORMATION
+-- ============================================
+-- Texte personnalisé affiché dans la section INFORMATION du menu pause
+-- Vous pouvez utiliser des emojis et du HTML basique
+Config.InfoText = "🚀 BOUTIQUE JV_SB CRÉATION : DES MAPS ET SCRIPTS RÉALISTES QUI RÉVOLUTIONNENT VOS PROJETS Voulez-vous faire passer votre serveur FiveM, votre jeu de rôle ou votre communauté de jeu au niveau supérieur ? Vos joueurs méritent une expérience unique, fluide et mémorable... et voici la solution."
+
+-- ============================================
+-- CONFIGURATION DU LIEN DISCORD
+-- ============================================
+-- Lien Discord à ouvrir quand on clique sur le bouton Discord
+-- Exemple: https://discord.gg/YMRRNjcRQD
+Config.DiscordURL = "https://discord.gg/YMRRNjcRQD"
+
+-- ============================================
+-- CONFIGURATION DU LIEN TEBIEX
+-- ============================================
+-- Lien Tebex à ouvrir quand on clique sur le bouton Tebex
+-- Exemple: https://jv-sb.tebex.io/
+Config.TebexURL = "https://jv-sb.tebex.io/"
+
+-- ============================================
+-- CONFIGURATION DES TEXTES DES BOUTONS
+-- ============================================
+-- Textes personnalisables pour tous les boutons et labels du menu pause
+
+-- Boutons principaux
+Config.ButtonTexts = {
+    -- Section Carte
+    MapText = "CARTE",
+    
+    -- Section Paramètres
+    SettingsText = "PARAMÈTRES",
+    
+    -- Section Information
+    InfoTitle = "INFORMATION",
+    
+    -- Boutons d'action en bas
+    QuitButton = "QUITTER LA VILLE",
+    DiscordButton = "DISCORD",  -- Laissez vide si vous voulez seulement l'icône, ou mettez un texte comme "DISCORD"
+    TebexButton = "BOUTIQUE EN LIGNE",  -- Laissez vide si vous voulez seulement l'icône, ou mettez un texte comme "BOUTIQUE"
+    ResumeButton = "RETOURNE EN VILLE",
+    
+    -- Labels des cartes joueur
+    PlayerIdLabel = "ID:",
+    PlayerNameLabel = "NOM:",
+    PlayerJobLabel = "MÉTIER:",
+    PlayerCashLabel = "ESPÈCES:",
+    PlayerBankLabel = "BANQUE:",
+    PlayerDirtyLabel = "ARGENT SALE:",
+    PlayerCountLabel = "JOUEURS EN LIGNE:",
+    
+    -- Footer
+    FooterText = "JV.SB CREATION © 2025/2026"
+}
+
+-- ============================================
+-- CONFIGURATION DU MENU DE PERSONNALISATION DES COULEURS
+-- ============================================
+-- Activer ou désactiver le menu de personnalisation des couleurs RGB
+-- true = activé, false = désactivé
+Config.EnableColorMenu = true
+
+-- ============================================
+-- CONFIGURATION AVANCÉE
+-- ============================================
+-- Volume par défaut de la musique (0-100)
+Config.DefaultVolume = 50
+
+-- Activer ou désactiver les messages de debug dans la console
+-- true = activé (affiche tous les messages de debug)
+-- false = désactivé (aucun message de debug)
+Config.EnableDebug = false
+
+-- ============================================
+-- CONFIGURATION DES OPTIONS AVANCÉES DU MENU
+-- ============================================
+-- Transparence du fond du menu (0.0 = transparent, 1.0 = opaque)
+Config.MenuBackgroundOpacity = 0.98
+
+-- Couleur du fond du menu (RGB)
+Config.MenuBackgroundColor = {
+    r = 0,
+    g = 0,
+    b = 0
+}
+
+
+-- Couleurs individuelles des boutons (RGB)
+Config.ButtonColors = {
+    -- Bouton Quitter
+    QuitButton = {
+        r = 255,
+        g = 69,
+        b = 0
+    },
+    -- Bouton Discord
+    DiscordButton = {
+        r = 138,
+        g = 43,
+        b = 226
+    },
+    -- Bouton Tebex
+    TebexButton = {
+        r = 255,
+        g = 165,
+        b = 0
+    },
+    -- Bouton Jouer/Resume
+    ResumeButton = {
+        r = 0,
+        g = 191,
+        b = 255
+    },
+    -- Boutons Audio
+    AudioButton = {
+        r = 0,
+        g = 191,
+        b = 255
+    },
+    -- Bouton Carte
+    MapButton = {
+        r = 0,
+        g = 191,
+        b = 255
+    },
+    -- Bouton Paramètres
+    SettingsButton = {
+        r = 255,
+        g = 20,
+        b = 147
+    }
+}
+
+-- Couleurs de surbrillance (hover) des boutons (RGB)
+Config.ButtonHoverColors = {
+    -- Bouton Quitter
+    QuitButton = {
+        r = 255,
+        g = 69,
+        b = 0
+    },
+    -- Bouton Discord
+    DiscordButton = {
+        r = 138,
+        g = 43,
+        b = 226
+    },
+    -- Bouton Tebex
+    TebexButton = {
+        r = 255,
+        g = 165,
+        b = 0
+    },
+    -- Bouton Jouer/Resume
+    ResumeButton = {
+        r = 0,
+        g = 191,
+        b = 255
+    },
+    -- Boutons Audio
+    AudioButton = {
+        r = 0,
+        g = 191,
+        b = 255
+    },
+    -- Bouton Carte
+    MapButton = {
+        r = 0,
+        g = 191,
+        b = 255
+    },
+    -- Bouton Paramètres
+    SettingsButton = {
+        r = 255,
+        g = 20,
+        b = 147
+    }
+}</code></pre>
+            </details>
+          </div>
+
+          <div class="doc-section">
             <h3>Dépendances</h3>
             <p>ESX à jour. <strong>JV_SB Lib</strong> recommandé si requis par votre version.</p>
           </div>

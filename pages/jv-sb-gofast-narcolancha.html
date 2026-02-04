@@ -80,6 +80,227 @@
           </div>
 
           <div class="doc-section">
+            <h3>Configuration (aperçu)</h3>
+            <details class="config-preview">
+              <summary>Voir le fichier config.lua</summary>
+              <pre><code>-- ============================================
+-- CONFIGURATION GOFAST NARCOLANCHA
+-- ============================================
+-- Script de mission GoFast avec système de builder intégré
+-- Version: 1.0
+-- ============================================
+
+Config = {}
+
+-- ============================================
+-- DEBUG
+-- ============================================
+Config.Debug = {
+    client = true, -- Debug côté client
+    server = true   -- Debug côté serveur
+}
+
+-- ============================================
+-- MODÈLES DES ENTITÉS
+-- ============================================
+-- Modèles utilisés pour les PNJ, véhicules et objets
+
+Config.PedModel = "csb_grove_str_dlr"              -- Modèle du PNJ de départ (qui lance les missions)
+Config.DeliveryVehicleModel = "speedo"             -- Modèle du véhicule de livraison (van)
+Config.DeliveryPedModel = "csb_grove_str_dlr"      -- Modèle du PNJ de livraison (chauffeur)
+Config.PackageModel = "hei_prop_heist_weed_block_01" -- Modèle des paquets de drogue
+
+-- ============================================
+-- POSITIONS (Gérées par le builder)
+-- ============================================
+-- ⚠️ ATTENTION: Ces valeurs sont remplacées automatiquement par les données du builder
+-- Ne modifiez pas ces valeurs ici, utilisez la commande /gofastbuilder en jeu
+
+Config.PedLocation = nil                           -- Position du PNJ de départ (vector4)
+Config.BoatSpawn = nil                             -- Position de spawn du bateau (vector4)
+Config.BoatStopLocation = nil                      -- Zone d'arrêt du bateau (vector4)
+Config.PropPositions = {}                          -- Positions des paquets de drogue (table de vector3)
+Config.DeliveryVehicleLocation = nil                -- Position du véhicule de livraison (vector4)
+
+-- ============================================
+-- PARAMÈTRES DE MISSION
+-- ============================================
+
+Config.MaxCargos = 10                              -- Nombre maximum de paquets (fallback si aucun prop configuré)
+Config.MaxPlayersPerMission = 4                    -- Nombre maximum de joueurs par mission
+Config.PropReserveTimeoutMs = 15000                -- Timeout reprise prop bateau (ms)
+
+-- ============================================
+-- RÉCOMPENSES
+-- ============================================
+
+Config.RewardPerPackage = 2000                     -- Récompense par paquet livré (en argent sale)
+Config.FinalBonus = 5000                           -- Bonus final si tous les paquets sont livrés
+
+-- ============================================
+-- FORCES DE L'ORDRE
+-- ============================================
+
+Config.PoliceJobs = {
+    "police",      -- Job police
+    "gendarmerie"  -- Job gendarmerie
+}
+Config.MinPoliceRequired = 0                       -- Nombre minimum de policiers/gendarmes requis pour lancer une mission (0 = désactivé)
+Config.AlertPoliceOnBoatLoaded = true              -- Envoyer une alerte aux forces de l'ordre quand tous les props sont chargés sur le bateau
+Config.CreatorPoliceCallDurationMs = 12000        -- Durée totale de l'appel (ms)
+Config.CreatorPoliceCallRingMs = 2500             -- Durée de la sonnerie (ms)
+Config.CreatorPoliceCallTriggerRadius = 40.0      -- Distance de déclenchement (bateau -> zone)
+Config.CreatorPoliceCallAudio = {
+    enabled = true,                               -- Activer l'audio d'appel personnalise
+    backend = "xsound",                           -- auto | xsound | nui
+    ring = { file = "police_ring_fr.mp3", volume = 0.6 },
+    voice = { file = "police_voice_fr.mp3", volume = 0.8 }
+}
+
+-- ============================================
+-- INTERFACE UTILISATEUR
+-- ============================================
+
+Config.Notification = "esx"                        -- Système de notification: "esx" ou "ox"
+Config.TextUI = "ox"                               -- Système de TextUI: "esx" ou "ox"
+Config.TextUIHardLock = true                       -- Verrouiller le TextUI contre les hides externes
+Config.TextUIForceRefreshMs = 0                    -- 0 = pas de refresh forcé
+
+-- Délai d'attente pour rafraîchir la liste des joueurs proches (ms)
+Config.NearbyPlayersRefreshMs = 800
+
+-- ============================================
+-- MARKERS
+-- ============================================
+
+Config.DeliveryMarker = {
+    enabled = true,                                 -- Activer/désactiver les markers
+    type = 1,                                       -- Type de marker (1 = cylindre rond)
+    size = 1.5,                                     -- Taille du marker (rayon)
+    height = 0.3,                                   -- Hauteur du marker
+    color = {255, 0, 0, 200},                      -- Couleur RGBA (Rouge, Vert, Bleu, Transparence)
+    bobUpAndDown = true,                            -- Animation de haut en bas
+    faceCamera = false,                             -- Face à la caméra
+    rotate = false                                  -- Rotation
+}
+
+-- ============================================
+-- CONFIGURATION DES BLIPS
+-- ============================================
+-- Vous pouvez personnaliser les blips pour chaque élément de la mission
+
+-- Blip pour la zone d'arrêt du bateau
+Config.BoatStopBlip = {
+    sprite = 514,                                   -- Sprite du blip (voir: https://docs.fivem.net/docs/game-references/blips/)
+    colour = 2,                                     -- Couleur du blip (2 = Vert)
+    scale = 0.8,                                    -- Taille du blip
+    name = "Zone d'arrêt du bateau"                 -- Nom affiché sur le blip
+}
+
+-- Blip pour les paquets de drogue
+Config.DrugPackagesBlip = {
+    sprite = 501,                                   -- Sprite du blip
+    colour = 1,                                     -- Couleur du blip (1 = Rouge)
+    scale = 0.6,                                    -- Taille du blip
+    name = "Paquet de drogue"                       -- Nom affiché sur le blip
+}
+
+-- Blip pour le véhicule de livraison
+Config.DeliveryVehicleBlip = {
+    sprite = 478,                                   -- Sprite du blip
+    colour = 1,                                     -- Couleur du blip (1 = Rouge)
+    scale = 0.8,                                    -- Taille du blip
+    name = "Véhicule de livraison"                  -- Nom affiché sur le blip
+}
+Config.ShowRouteToBoatStop = false                 -- Afficher le GPS vers la zone d'arrêt
+Config.ShowRouteToDeliveryVehicle = false          -- Afficher le GPS vers le véhicule
+
+-- ============================================
+-- POSITIONS DES PROPS
+-- ============================================
+-- Positions relatives pour placer les props dans le bateau et le véhicule
+
+-- Positions des props dans le bateau (offsets relatifs au bateau)
+Config.CargoBoatPositions = {
+    vector3(0.7, 1.2, 0.4),
+    vector3(0.5, 1.2, 0.4),
+    vector3(0.3, 1.2, 0.4),
+    vector3(0.1, 1.2, 0.4),
+    vector3(-0.1, 1.2, 0.4),
+    vector3(-0.3, 1.2, 0.4),
+    vector3(-0.5, 1.2, 0.4),
+    vector3(-0.7, 1.2, 0.4),
+    vector3(0.7, 1.5, 0.4),
+    vector3(0.5, 1.5, 0.4)
+}
+
+-- Positions des props dans le coffre du véhicule (offsets relatifs au véhicule)
+Config.CargoTrunkPositions = {
+    -- Niveau 1 (BASE - sol du coffre) - DESCENDUS LÉGÈREMENT
+    vector3(0.0, -2.0, -0.05),   -- Centre base (descendu de 0.0 à -0.05)
+    vector3(0.2, -2.0, -0.05),   -- Droite base
+    vector3(-0.2, -2.0, -0.05),  -- Gauche base
+    
+    -- Niveau 2 (sur la base) - DESCENDUS ENCORE PLUS pour reposer sur la base
+    vector3(0.0, -2.0, 0.1),     -- Centre niveau 2 (descendu de 0.15 à 0.1)
+    vector3(0.2, -2.0, 0.1),      -- Droite niveau 2
+    vector3(-0.2, -2.0, 0.1),    -- Gauche niveau 2
+    
+    -- Niveau 3 (sur le niveau 2) - DESCENDUS ENCORE PLUS pour reposer sur le niveau 2
+    vector3(0.0, -2.0, 0.25),    -- Centre niveau 3 (descendu de 0.35 à 0.25)
+    vector3(0.2, -2.0, 0.25),    -- Droite niveau 3
+    vector3(-0.2, -2.0, 0.25),   -- Gauche niveau 3
+    
+    -- Position supplémentaire - DESCENDUE ENCORE PLUS
+    vector3(0.0, -2.2, 0.1)      -- Position latérale niveau 2 (descendue de 0.15 à 0.1)
+}
+
+-- ============================================
+-- BASE DE DONNÉES
+-- ============================================
+
+Config.AutoRunSQL = true                           -- Créer automatiquement la table MySQL au démarrage
+
+-- ============================================
+-- FONCTION DE CHARGEMENT DES DONNÉES BUILDER
+-- ============================================
+-- Cette fonction charge les positions configurées via le builder
+-- ⚠️ NE PAS MODIFIER cette fonction sauf si vous savez ce que vous faites
+
+function LoadBuilderConfig(builderData)
+    -- Réinitialiser toutes les valeurs par défaut
+    Config.PedLocation = nil
+    Config.BoatSpawn = nil
+    Config.BoatStopLocation = nil
+    Config.PropPositions = {}
+    Config.DeliveryVehicleLocation = nil
+    
+    if builderData then
+        -- Charger uniquement les données fournies
+        if builderData.ped_location then
+            Config.PedLocation = vector4(builderData.ped_location.x, builderData.ped_location.y, builderData.ped_location.z, builderData.ped_location.w or 0.0)
+        end
+        if builderData.boat_spawn then
+            Config.BoatSpawn = vector4(builderData.boat_spawn.x, builderData.boat_spawn.y, builderData.boat_spawn.z, builderData.boat_spawn.w or 0.0)
+        end
+        if builderData.boat_stop then
+            Config.BoatStopLocation = vector4(builderData.boat_stop.x, builderData.boat_stop.y, builderData.boat_stop.z, builderData.boat_stop.w or 0.0)
+        end
+        if builderData.prop_positions and #builderData.prop_positions > 0 then
+            Config.PropPositions = {}
+            for i, pos in ipairs(builderData.prop_positions) do
+                Config.PropPositions[i] = vector3(pos.x, pos.y, pos.z)
+            end
+        end
+        if builderData.delivery_vehicle then
+            Config.DeliveryVehicleLocation = vector4(builderData.delivery_vehicle.x, builderData.delivery_vehicle.y, builderData.delivery_vehicle.z, builderData.delivery_vehicle.w or 0.0)
+        end
+    end
+end</code></pre>
+            </details>
+          </div>
+
+          <div class="doc-section">
             <h3>Dépendances</h3>
             <p>ESX + <strong>JV_SB Lib</strong> requis pour un fonctionnement stable.</p>
           </div>

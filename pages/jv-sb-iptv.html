@@ -80,6 +80,369 @@
           </div>
 
           <div class="doc-section">
+            <h3>Configuration (aperçu)</h3>
+            <details class="config-preview">
+              <summary>Voir le fichier config.lua</summary>
+              <pre><code>Config = {}
+
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- 📋 CONFIGURATION GÉNÉRALE
+-- ═══════════════════════════════════════════════════════════════════════════════
+
+--- Commande pour ouvrir le menu IPTV (sans le slash)
+--- @type string
+Config.IPTVCommand = "iptv"
+
+--- URL du logo affiché dans le menu IPTV
+--- @type string
+Config.LogoURL = "https://zupimages.net/up/25/47/f2eb.png"
+
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- 📺 CONFIGURATION DES ÉCRANS TV
+-- ═══════════════════════════════════════════════════════════════════════════════
+
+--- Active la détection automatique des écrans TV dans le monde
+--- Si true : Le script détectera automatiquement tous les écrans TV configurés
+--- Si false : Seuls les écrans définis dans Config.Ecrans seront utilisés
+--- @type boolean
+Config.AutoDetectTVs = true
+
+--- Distance maximale pour entendre le son des écrans TV (en mètres)
+--- Au-delà de cette distance, le son sera automatiquement coupé
+--- @type number
+Config.SoundMaxDistance = 30.0
+
+--- Liste des modèles d'écrans TV supportés pour la détection automatique
+--- Chaque entrée doit contenir :
+---   - object : Nom du modèle GTA (ex: "prop_tv_flat_01")
+---   - maxdistance : Distance maximale de détection (en mètres)
+---   - maxcontroldistance : Distance maximale pour interagir (en mètres)
+---   - scale : Dimensions de l'écran {largeur, hauteur}
+---   - rendertarget : (optionnel) true si le modèle supporte les render targets
+---   - rendertargetname : (optionnel) Nom du render target si rendertarget = true
+--- @type table
+Config.TelevisionObjects = {
+    {
+        object = "prop_tv_flat_01",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5},
+        rendertarget = true,
+        rendertargetname = "tvscreen"
+    },
+    {
+        object = "v_ilev_cin_screen",
+        maxdistance = 40.0,
+        maxcontroldistance = 20.0,
+        scale = {3.0, 2.0},
+        rendertarget = true,
+        rendertargetname = "cinscreen"
+    },
+    {
+        object = "vw_prop_vw_cinema_tv_01",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5},
+        rendertarget = true,
+        rendertargetname = "tvscreen"
+    },
+    {
+        object = "prop_tv_flat_michael",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5},
+        rendertarget = true,
+        rendertargetname = "tvscreen"
+    },
+    {
+        object = "prop_trev_tv_01",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "prop_tv_flat_03b",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "prop_tv_flat_03",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "prop_tv_flat_02b",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "prop_tv_flat_02",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "hei_heist_str_avunitl_03",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "mp_b_str_avunitl_03",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "mp_b_str_avunits_01",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "mp_b_str_avunitl_01",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "hei_heist_str_avunitl_01",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "hei_heist_str_avunits_01",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "apa_mp_h_str_avunitl_04",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "apa_mp_h_str_avunitl_01_b",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "apa_mp_h_str_avunits_01",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "apa_mp_h_str_avunits_04",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "prop_tv_01",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "prop_tv_02",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "prop_tv_03",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "prop_tv_04",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "prop_tv_05",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "prop_tv_06",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "prop_tv_07",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "ex_prop_ex_tv_flat_01",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    },
+    {
+        object = "sm_prop_smug_tv_flat_01",
+        maxdistance = 15.0,
+        maxcontroldistance = 15.0,
+        scale = {2.0, 1.5}
+    }
+}
+
+--- Configuration manuelle des écrans TV (utilisé uniquement si Config.AutoDetectTVs = false)
+--- Format pour chaque écran :
+---   - coords : Position de l'écran (vector3)
+---   - heading : Orientation de l'écran (en degrés)
+---   - scale : Dimensions de l'écran {largeur, hauteur}
+---   - distance : Distance maximale d'interaction (en mètres)
+---   - label : Nom affiché pour cet écran (optionnel)
+--- @type table
+Config.Ecrans = {
+    -- Exemple (non utilisé si AutoDetectTVs = true) :
+    -- {
+    --     coords = vector3(-1082.0, -247.0, 37.8),
+    --     heading = 206.0,
+    --     scale = {2.0, 1.5},
+    --     distance = 10.0,
+    --     label = "Écran Principal"
+    -- }
+}
+
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- 🔐 CONFIGURATION DES PERMISSIONS
+-- ═══════════════════════════════════════════════════════════════════════════════
+
+--- Autoriser les administrateurs à utiliser les écrans TV
+--- Si false, même les admins ne pourront pas utiliser les écrans
+--- @type boolean
+Config.AllowAdmins = true
+
+--- Liste des groupes admin reconnus pour les permissions
+--- Le script vérifiera si le joueur appartient à l'un de ces groupes
+--- @type table<string>
+Config.AdminGroups = {
+    "admin",
+    "superadmin",
+    "mod",
+    "moderator",
+    "administrator",
+    "super_admin",
+    "god",
+    "founder"
+}
+
+--- Exiger un job spécifique pour utiliser les écrans TV
+--- Si false : Seuls les admins pourront utiliser (si Config.AllowAdmins = true)
+--- Si true : Les admins ET les jobs autorisés dans Config.AllowedJobs pourront utiliser
+--- @type boolean
+Config.RequireJob = false
+
+--- Liste des jobs autorisés à utiliser les écrans TV
+--- Utilisé uniquement si Config.RequireJob = true
+--- Format : Liste des noms de jobs (ex: "police", "ambulance")
+--- @type table<string>
+Config.AllowedJobs = {
+    -- Exemples :
+    -- "police",
+    -- "ambulance",
+    -- "admin"
+}
+
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- 📄 CONFIGURATION M3U
+-- ═══════════════════════════════════════════════════════════════════════════════
+
+--- Activer l'onglet "Fichier M3U" dans le menu IPTV
+--- Si true : L'onglet M3U sera visible et utilisable
+--- Si false : L'onglet M3U sera masqué
+--- @type boolean
+Config.EnableM3U = false
+
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- 🌐 CONFIGURATION CLOUDFLARE / PROXY
+-- ═══════════════════════════════════════════════════════════════════════════════
+
+--- URL d'un proxy HTTP optionnel pour contourner Cloudflare
+--- Si votre serveur IPTV est protégé par Cloudflare, vous pouvez utiliser un proxy
+--- Format: "http://proxy.example.com:8080" ou nil pour désactiver
+--- @type string|nil
+Config.ProxyURL = nil
+
+--- Activer le mode de contournement Cloudflare avancé
+--- Essaie différentes techniques pour contourner Cloudflare (peut être plus lent)
+--- @type boolean
+Config.AdvancedCloudflareBypass = true
+
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- 🐛 CONFIGURATION DU DEBUG
+-- ═══════════════════════════════════════════════════════════════════════════════
+
+--- Activer les logs de debug (client et serveur)
+--- À mettre à false en production pour améliorer les performances
+--- @type boolean
+Config.Debug = true
+
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- 🌐 MESSAGES / TRADUCTION
+-- ═══════════════════════════════════════════════════════════════════════════════
+
+--- Messages affichés dans le jeu (traductions)
+--- Vous pouvez modifier ces messages pour changer la langue
+--- @type table<string, string>
+Config.Lang = {
+    -- Permissions
+    ['no_permission'] = "Vous n'avez pas la permission d'utiliser cet écran",
+    
+    -- Écrans
+    ['screen_off'] = "Écran éteint",
+    ['screen_on'] = "Écran allumé",
+    ['no_tv_nearby'] = "Aucun écran TV trouvé à proximité",
+    ['tv_not_found'] = "Erreur: Écran TV non trouvé",
+    
+    -- Connexion Xtream Codes
+    ['connection_success'] = "Connexion Xtream Codes réussie",
+    ['connection_failed'] = "Échec de la connexion Xtream Codes",
+    ['disconnected'] = "Déconnexion réussie",
+    ['tv_disconnected'] = "Télévision déconnectée",
+    
+    -- Chaînes
+    ['channel_changed'] = "Chaîne changée: %s",
+    ['channel_error'] = "Erreur: Impossible de charger la chaîne",
+    ['channel_missing'] = "Erreur: Aucune chaîne fournie",
+    ['channel_url_missing'] = "Erreur: URL de chaîne manquante",
+    ['channels_loading'] = "Chargement des chaînes en cours...",
+    ['channels_loaded'] = "Chaînes chargées avec succès",
+    ['channels_error'] = "Erreur lors du chargement des chaînes",
+    
+    -- Télévisions
+    ['tvs_refreshed'] = "Liste des télévisions actualisée",
+    
+    -- Volume
+    ['volume_changed'] = "Volume: %d%%",
+    ['volume_muted'] = "Son coupé",
+    ['volume_unmuted'] = "Son activé",
+    
+    -- Profils
+    ['profile_saved'] = "Profil sauvegardé avec succès",
+    ['profile_deleted'] = "Profil supprimé avec succès",
+    ['profile_loaded'] = "Profil chargé",
+    ['profile_updated'] = "Profil mis à jour avec succès"
+}</code></pre>
+            </details>
+          </div>
+
+          <div class="doc-section">
             <h3>Dépendances</h3>
             <p>Assurez-vous d’avoir <strong>JV_SB Lib</strong> et les dépendances ESX requis.</p>
           </div>

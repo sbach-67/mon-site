@@ -80,6 +80,125 @@
           </div>
 
           <div class="doc-section">
+            <h3>Configuration (aperçu)</h3>
+            <details class="config-preview">
+              <summary>Voir le fichier config.lua</summary>
+              <pre><code>Config = {}
+
+-- Choix du système de notification : 'ox' ou 'okok'
+Config.NotificationSystem = 'okok'  -- Change en 'okok' si tu veux utiliser okokNotify
+
+-- Liste des jobs détectables
+Config.AllowedJobs = {
+    'police',
+    'sheriff',
+    'pompier'
+}
+
+Config.Guetteurs = {
+    {
+        model = "g_m_m_chicold_01",
+        pos = vector4(744.16, -346.65, 44.03, 218.27),
+        detectionRadius = 60.0,
+        cooldownAlert = 1,
+        alertRadius = 30.0
+    },
+    {
+        model = "g_m_m_chicold_01",
+        pos = vector4(930.50, -297.11, 64.66, 283.46),
+        detectionRadius = 60.0,
+        cooldownAlert = 1,
+        alertRadius = 30.0
+    },
+    {
+        model = "g_m_m_chicold_01",
+        pos = vector4(805.57, -206.62, 71.92, 325.98),
+        detectionRadius = 60.0,
+        cooldownAlert = 1,
+        alertRadius = 30.0
+    },
+    {
+        model = "g_m_m_chicold_01",
+        pos = vector4(-127.08, -1550.27, 33.18, 14.17),
+        detectionRadius = 60.0,
+        cooldownAlert = 1,
+        alertRadius = 30.0
+    },
+    {
+        model = "g_m_m_chicold_01",
+        pos = vector4(-242.95, -1452.20, 30.86, 317.48),
+        detectionRadius = 60.0,
+        cooldownAlert = 1,
+        alertRadius = 30.0
+    },
+    {
+        model = "g_m_m_chicold_01",
+        pos = vector4(-172.51, -1510.23, 31.94, 2.83),
+        detectionRadius = 60.0,
+        cooldownAlert = 1,
+        alertRadius = 30.0
+    },
+    {
+        model = "g_m_m_chicold_01",
+        pos = vector4(-153.24, -1728.91, 29.09, 291.97),
+        detectionRadius = 60.0,
+        cooldownAlert = 1,
+        alertRadius = 30.0
+    },
+    {
+        model = "g_m_m_chicold_01",
+        pos = vector4(-187.65, -1590.63, 33.65, 260.79),
+        detectionRadius = 60.0,
+        cooldownAlert = 1,
+        alertRadius = 30.0
+    },
+    {
+        model = "g_m_m_chicold_01",
+        pos = vector4(-173.09, -1674.74, 32.16, 130.39),
+        detectionRadius = 60.0,
+        cooldownAlert = 1,
+        alertRadius = 30.0
+    },
+    {
+        model = "g_m_m_chicold_01",
+        pos = vector4(611.42, -1662.16, 24.10, 87.87),
+        detectionRadius = 60.0,
+        cooldownAlert = 1,
+        alertRadius = 30.0
+    },
+    {
+        model = "g_m_m_chicold_01",
+        pos = vector4(613.05, -1599.55, 25.11, 45.35),
+        detectionRadius = 60.0,
+        cooldownAlert = 1,
+        alertRadius = 30.0
+    },
+    {
+        model = "g_m_m_chicold_01",
+        pos = vector4(672.21, -1671.16, 26.27, 59.53),
+        detectionRadius = 60.0,
+        cooldownAlert = 1,
+        alertRadius = 30.0
+    },
+    {
+        model = "g_m_m_chicold_01",
+        pos = vector4(1495.11, 6509.68, 20.29, 223.94),
+        detectionRadius = 60.0,
+        cooldownAlert = 1,
+        alertRadius = 30.0
+    },
+    {
+        model = "g_m_m_chicold_01",
+        pos = vector4(1366.88, 6526.23, 20.70, 164.41),
+        detectionRadius = 60.0,
+        cooldownAlert = 1,
+        alertRadius = 30.0
+    }
+}</code></pre>
+            </details>
+          </div>
+
+          <div class="doc-section">
             <h3>Dépendances</h3>
             <p><strong>JV_SB Lib</strong> recommandé pour des notifications propres.</p>
           </div>

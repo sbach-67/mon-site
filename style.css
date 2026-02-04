@@ -539,6 +539,47 @@ footer {
   margin: 0 auto;
 }
 
+.config-preview {
+  background: rgba(12, 12, 20, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.config-preview summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+  list-style: none;
+}
+
+.config-preview summary::-webkit-details-marker {
+  display: none;
+}
+
+.config-preview summary::after {
+  content: "↘";
+  float: right;
+  color: var(--muted);
+}
+
+.config-preview[open] summary::after {
+  content: "↗";
+}
+
+.config-preview pre {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #e8ebff;
+  overflow: auto;
+  max-height: 420px;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre;
+}
+
 /* =========================
    RESPONSIVE
 ========================= */

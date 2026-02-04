@@ -80,6 +80,26 @@
           </div>
 
           <div class="doc-section">
+            <h3>Configuration (aperçu)</h3>
+            <details class="config-preview">
+              <summary>Voir le fichier config.lua</summary>
+              <pre><code>-- JV_SB_Lib - Configuration
+
+Config = {}
+
+-- Configuration du logo
+Config.EnableLogo = true
+Config.LogoPath = "https://zupimages.net/up/25/47/f2eb.png" -- URL du logo (zupimages, imgur, base64, etc.)
+Config.LogoSize = 40 -- Taille en pixels
+Config.LogoPosition = "left" -- "left", "right", "top", "bottom"
+
+-- Configuration des notifications
+Config.NotificationPosition = "top-left" -- "top-left", "top-right", "bottom-left", "bottom-right"
+Config.DefaultDuration = 5000 -- Durée par défaut en millisecondes</code></pre>
+            </details>
+          </div>
+
+          <div class="doc-section">
             <h3>Scripts compatibles</h3>
             <p>Cette lib est recommandée pour tous les scripts JV.SB listés dans la documentation.</p>
           </div>

@@ -80,6 +80,238 @@
           </div>
 
           <div class="doc-section">
+            <h3>Configuration (aperçu)</h3>
+            <details class="config-preview">
+              <summary>Voir le fichier config.lua</summary>
+              <pre><code>Config = {}
+
+-- ============================================
+-- 📍 CONFIGURATION DES CHAISES DE VENTE
+-- ============================================
+
+-- Chaises où les joueurs peuvent s'asseoir pour vendre de la drogue
+-- Structure:
+--   - coords: vector4(x, y, z, heading) → Position et orientation de la chaise
+--   - prop: string → Modèle de la prop de chaise à utiliser
+--   - path: array de vector3 → Chemin pour le véhicule du PNJ
+--     * path[1] = Point de spawn du véhicule (doit être sur une route)
+--     * path[#path] = Point de stationnement final (où le véhicule se gare)
+--     * Les points intermédiaires sont optionnels mais aident à la navigation
+Config.DealChairs = {
+    -- Centre ville
+    {
+        coords = vector4(965.9655, -1504.4480, 31.3406, 125.3140),
+        prop = "prop_skid_chair_03",
+        path = {
+            vector3(936.9254, -1447.8453, 31.1185), -- Spawn véhicule
+            vector3(968.0804, -1447.3435, 31.1459), -- Approche (optionnel)
+            vector3(968.0804, -1477.8059, 31.3405), -- Approche (optionnel)
+            vector3(967.3469, -1504.4230, 31.3406)  -- Stationnement véhicule
+        }
+    },
+    {
+        coords = vector4(-176.7695, -1582.3710, 35.0939, 60.8167),
+        prop = "prop_skid_chair_01",
+        path = {
+            vector3(-159.1295, -1514.9921, 33.7436), -- Spawn véhicule
+            vector3(-133.0480, -1533.6514, 34.2517), -- Approche (optionnel)
+            vector3(-174.8899, -1583.8602, 34.8786)  -- Stationnement véhicule
+        }
+    },
+    
+    -- Quartier a Definir
+    --[[
+    {
+        coords = vector4(-217.6416, -1588.8040, 35.9914, 140.6367),
+        prop = "prop_skid_chair_03",
+        path = {
+            vector3(-231.9015, -1586.5618, 35.9914), -- Spawn véhicule
+            vector3(-226.1028, -1580.6656, 35.9914), -- Approche (optionnel)
+            vector3(-216.9521, -1587.6118, 35.9914)  -- Stationnement véhicule
+        }
+    },
+    {
+        coords = vector4(-317.8597, -1647.1240, 35.9914, 127.9453),
+        prop = "prop_skid_chair_01",
+        path = {
+            vector3(-299.5660, -1656.7723, 35.9914), -- Spawn véhicule
+            vector3(-308.0375, -1650.1642, 35.9914), -- Approche (optionnel)
+            vector3(-317.5, -1647.8, 35.9914)       -- Stationnement véhicule
+        }
+    },
+    {
+        coords = vector4(-231.60000610352, -1504.193359375, 35.986083984375, 133.22),
+        prop = "prop_skid_chair_01",
+        path = {
+            vector3(-225.00659179688, -1514.5318603516, 35.986083984375), -- Spawn véhicule
+            vector3(-226.02197265625, -1506.3297119141, 35.986083984375), -- Approche (optionnel)
+            vector3(-231.05934143066, -1503.4681396484, 35.986083984375) -- Stationnement véhicule
+        }
+    },
+    --]]
+    
+    -- Quartier a Definir
+    --[[
+    {
+        coords = vector4(745.6492, -306.6282, 60.0046, 99.3428),
+        prop = "prop_skid_chair_03",
+        path = {
+            vector3(770.8220, -331.7636, 59.9695), -- Spawn véhicule
+            vector3(760.0, -320.0, 60.0),          -- Approche (optionnel)
+            vector3(750.0, -310.0, 60.0),          -- Approche (optionnel)
+            vector3(746.5, -306.5, 60.0)           -- Stationnement véhicule
+        }
+    },
+    {
+        coords = vector4(812.3482, -273.2776, 66.1324, 229.4653),
+        prop = "prop_skid_chair_01",
+        path = {
+            vector3(826.0727, -263.6805, 65.8456), -- Spawn véhicule
+            vector3(817.3613, -266.6783, 65.8672), -- Approche (optionnel)
+            vector3(811.7510, -272.4030, 65.9947)  -- Stationnement véhicule
+        }
+    },
+    --]]
+    
+    -- Quartier a Definir
+    --[[
+    {
+        coords = vector4(1386.752, -750.2242, 67.20, 249.44),
+        prop = "prop_skid_chair_03",
+        path = {
+            vector3(1350.3428, -743.8549, 67.17), -- Spawn véhicule
+            vector3(1365.28, -750.92, 67.17),     -- Approche (optionnel)
+            vector3(1386.0263, -749.96, 67.22)    -- Stationnement véhicule
+        }
+    },
+    {
+        coords = vector4(-2172.1038, -562.1030, 13.1624, 162.7596),
+        prop = "prop_skid_chair_01",
+        path = {
+            vector3(-2165.0, -555.0, 13.0), -- Spawn véhicule
+            vector3(-2170.0, -558.0, 13.0), -- Approche (optionnel)
+            vector3(-2172.0, -560.0, 13.0)  -- Stationnement véhicule
+        }
+    },
+    {
+        coords = vector4(232.5231, 1183.2795, 231.5175, 245.9042),
+        prop = "prop_skid_chair_01",
+        path = {
+            vector3(218.7809, 1180.1172, 231.5176), -- Spawn véhicule
+            vector3(225.0, 1182.0, 231.0),          -- Approche (optionnel)
+            vector3(232.5, 1184.0, 231.0)          -- Stationnement véhicule
+        }
+    },
+    {
+        coords = vector4(2074.4751, 3424.0393, 48.0172, 107.6733),
+        prop = "prop_skid_chair_01",
+        path = {
+            vector3(2080.2744, 3425.2759, 48.0134), -- Spawn véhicule
+            vector3(2078.0, 3424.5, 48.0),         -- Approche (optionnel)
+            vector3(2075.0, 3426.0, 48.0)          -- Stationnement véhicule
+        }
+    },
+    --]]
+    
+    -- Quartier a Definir
+    --[[
+    {
+        coords = vector4(993.7649, 6655.0425, 21.7096, 281.7016),
+        prop = "prop_skid_chair_01",
+        path = {
+            vector3(973.6344, 6662.1621, 21.7096), -- Spawn véhicule
+            vector3(980.0, 6658.0, 21.7),          -- Approche (optionnel)
+            vector3(993.5, 6655.0, 21.7)           -- Stationnement véhicule
+        }
+    },
+    {
+        coords = vector4(1150.8801, -2220.5767, 45.3362, 80.0015),
+        prop = "prop_skid_chair_01",
+        path = {
+            vector3(1170.8021, -2229.3320, 45.3362), -- Spawn véhicule
+            vector3(1160.0, -2225.0, 45.3),          -- Approche (optionnel)
+            vector3(1151.5, -2220.0, 45.3)           -- Stationnement véhicule
+        }
+    }
+    --]]
+}
+
+-- ============================================
+-- 📦 CONFIGURATION DES DROGUES
+-- ============================================
+
+-- Liste des drogues que les joueurs peuvent vendre
+-- Structure:
+--   - label: string → Nom affiché dans le menu
+--   - value: string → Nom de l'item dans l'inventaire
+--   - price: table → Prix min et max en argent sale (€)
+Config.Drugs = {
+    { label = "Weed", value = "weed_package", price = {min = 10, max = 25} },
+    { label = "Meth", value = "meth_bag", price = {min = 40, max = 70} },
+    { label = "Crack", value = "crack", price = {min = 60, max = 90} },
+    { label = "Heroin", value = "heroin", price = {min = 100, max = 150} },
+    { label = "Coke", value = "coke_figure", price = {min = 80, max = 120} }
+}
+
+-- ============================================
+-- ⚙️ PARAMÈTRES GÉNÉRAUX
+-- ============================================
+
+-- Système de notifications à utiliser
+-- Options: 'jv_sb_lib' ou 'ox_lib'
+Config.NotificationSystem = 'jv_sb_lib'
+
+-- Intervalle entre chaque proposition de vente (en millisecondes)
+Config.SellCooldown = 3000
+
+-- Distance maximale pour quitter la chaise et annuler la vente (en mètres)
+Config.MaxDistance = 2.5
+
+-- Heure minimum pour commencer à dealer (0-23)
+-- Définir à 0 pour autoriser 24/24
+Config.DealStartHour = 12
+
+-- Nombre minimum de policiers en service requis pour dealer
+Config.MinPolice = 0
+
+-- Jobs de police reconnus par le script
+Config.PoliceJobs = {
+    'police',
+    'police_nationale',
+    'gendarmerie'
+}
+
+-- ============================================
+-- 👤 MODÈLES DE PNJ
+-- ============================================
+
+-- Liste des modèles de PNJ qui arrivent en voiture pour acheter
+Config.PedModels = {
+    "a_m_m_soucent_01",
+    "a_m_m_soucent_02",
+    "a_m_m_beach_01",
+    "a_m_m_business_01"
+}
+
+-- ============================================
+-- 🚗 MODÈLES DE VÉHICULES
+-- ============================================
+
+-- Liste des véhicules utilisés par les PNJs pour arriver
+Config.VehicleModels = {
+    "fugitive",
+    "premier",
+    "ingot",
+    "stratum",
+    "washington",
+    "tailgater",
+    "schafter2",
+    "cognoscenti"
+}</code></pre>
+            </details>
+          </div>
+
+          <div class="doc-section">
             <h3>Dépendances</h3>
             <p>Assurez-vous d’avoir <strong>JV_SB Lib</strong> et ESX à jour.</p>
           </div>

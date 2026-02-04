@@ -80,6 +80,55 @@
           </div>
 
           <div class="doc-section">
+            <h3>Configuration (aperçu)</h3>
+            <details class="config-preview">
+              <summary>Voir le fichier Shared/Config.lua</summary>
+              <pre><code>Config = {}
+
+Config['locale'] = "fr"
+
+Config['scriptVersion'] = 2.7
+
+Config['groups'] = {
+    "admin",
+    "superadmin"
+}
+
+-- Configuration du logo
+Config.Logo = {
+    enabled = true, -- Activer/désactiver le logo
+    url = 'https://zupimages.net/up/25/47/f2eb.png', -- URL de l'image (ex: 'https://example.com/logo.png')
+    useDefaultSvg = true -- Utiliser le logo SVG par défaut si l'image ne charge pas
+}
+
+-- Choisir le type de notification UI: "ox_lib" ou "okokTextUI"
+Config['textUIType'] = "okokTextUI" -- Options: "ox_lib" ou "okokTextUI"
+
+-- Choisir le type de menu: "ox_lib", "jv_sb_menu" ou "guille_contextmenu"
+Config['menuType'] = "jv_sb_menu" -- Options: "ox_lib" (nécessite ox_lib), "jv_sb_menu" (intégré), "guille_contextmenu" (ancien) 
+
+-- Activer/Désactiver les véhicules personnels
+Config['enablePersonalVehicles'] = true -- Options: true ou false
+
+-- Système de garage pour les véhicules personnels
+Config['personalGarageSystem'] = "jg-advancedgarages" -- Options: "jg-advancedgarages" ou "custom"
+
+-- Contrôle pour arrêter l'escorte (73 = X, 22 = Espace, 38 = E)
+Config['stopEscortKey'] = 73  -- X key
+
+Config.handcuff = { -- Config in regards to cuffing
+    timer = false, -- Time before player is automatically unrestrained (in seconds, Set to false if not desired)
+}
+
+-- Modèle du prop pour le coffre (Stockage)
+Config['stockagePropModel'] = "sf_prop_v_43_safe_s_bk_01a"
+
+-- Modèle du prop pour le point Boss
+Config['bossPropModel'] = "prop_laptop_01a"</code></pre>
+            </details>
+          </div>
+
+          <div class="doc-section">
             <h3>Dépendances</h3>
             <p>Assurez-vous d’avoir <strong>JV_SB Lib</strong> et ESX à jour.</p>
           </div>

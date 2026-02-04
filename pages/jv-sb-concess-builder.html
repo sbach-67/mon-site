@@ -80,6 +80,104 @@
           </div>
 
           <div class="doc-section">
+            <h3>Configuration (aperçu)</h3>
+            <details class="config-preview">
+              <summary>Voir le fichier config/main_config.lua</summary>
+              <pre><code>ESX = exports["es_extended"]:getSharedObject()
+Config = Config or {}
+
+
+-- NOTIFICATIONS
+Config.Notif             = "okokNotify" -- "dNotif" | "ESX" | "OX" | "okokNotify"
+Config.JobNotif          = true     -- true - false
+
+-- INTERACTIONS
+Config.InteractionModern = false        -- false | true = interaction modern
+Config.drawtext          = false       -- true = affiche un DrawText 2D bas écran
+Config.text3d            = false       -- true = affiche un texte 3D flottant au-dessus du shop
+Config.helpType          = false    -- "OX" | "ESX" | "dNotif" | "okokTextUI" | false (désactive)
+Config.targetType        = "ox_target" -- "ox_target" | "qtarget" | false (désactive)
+
+-- INPUTS
+Config.input             = "OX" -- "dNotif" | "OX" | "Custom
+Config.choice            = "OX" -- "dNotif" | "OX" | "Custom"
+Config.keyboard          = "OX" -- "dNotif" | "OX" | "Custom"
+
+-- CAR KEYS
+Config.keyCar            = "JV_SB_carkeys" -- "JV_SB_Cardealer" | "JV_SB_carkeys" | "Custom"
+
+-- BILLING SYSTEM
+Config.billing           = "okokBilling" -- "ESX" | "okokBilling" | "Custom"
+
+-- GARAGE INTEGRATION
+Config.Garage = {
+    type = "jg-advancedgarages",      -- "ks-garage" | "jg-advancedgarages"
+}
+
+-- VEHICLE SYSTEMS
+Config.spawnType         = "ESX" -- "ESX" | "OX"
+Config.vehicleProps      = "ESX" -- "ESX" | "OX" | "Custom"
+
+-- CONCESSIONNAIRE MODE
+Config.AutoModeEnabled   = false -- true = Active automatiquement le mode automatique quand il n'y a pas d'employé en service | false = Mode manuel même sans employé
+
+
+
+Config.BossMenuLoaded = {
+    ['Concessionnaire_Sud'] = {
+        nameJob = 'cardealer',
+        societyName = 'society_cardealer',
+        labelName = 'Concessionnaire Paris',
+        bossGrade = 2,
+        textureBossMenu = 'header_pdm',
+        coordsBossMenu = vector3(-1227.9305, -1330.4220, 3.9115),
+    },
+    ['Concessionnaire_Nord'] = {
+        nameJob = 'yamaha',
+        societyName = 'society_yamaha',
+        labelName = 'Concessionnaire yamaha',
+        bossGrade = 2,
+        textureBossMenu = 'header_pdm',
+        coordsBossMenu = vector3(-761.17, -278.08, 54.00),
+    },
+}
+
+Config.Keys = {
+    MaxDistance = 4.0,                         -- Distance max pour interagir avec le véhicule
+    ControlKey = 'x',                          -- Touche pour utiliser les clés
+    Debug = false,                             -- Affiche les erreurs dans la console
+    EnableKeyAnimationOutside = true,          -- Animation télécommande dehors
+    EnableKeyUsageInsideVehicle = false,       -- Utiliser les clés dans le véhicule
+    EnableKeyAnimationInsideVehicle = false,   -- Animation télécommande dedans
+    EnableLightAnimationOutside = true,        -- Animation lumières dehors
+    EnableLightAnimationInsideVehicle = false, -- Animation lumières dedans
+}
+
+Config.dRageUI = {
+    arrondi = false,
+    simpleBar = false,
+    color = {
+        R = 89,
+        G = 101,
+        B = 241,
+        A = 215,
+    }
+}
+
+-- Configuration pour le test drive
+Config.TestDrive = {
+    enabled = true,              -- Activer/désactiver le test drive
+    duration = 120,              -- Durée du test en secondes (2 minutes)
+    stopKey = "E",               -- Touche pour arrêter le test
+    stopKeyLabel = "~g~E~s~"     -- Label de la touche à afficher
+}
+
+
+Config.DebugBossMenu = true -- Pour voir les logs de synchro</code></pre>
+            </details>
+          </div>
+
+          <div class="doc-section">
             <h3>Dépendances</h3>
             <p>ESX et <strong>JV_SB Lib</strong> recommandés pour une compatibilité optimale.</p>
           </div>

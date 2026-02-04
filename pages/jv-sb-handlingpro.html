@@ -80,6 +80,381 @@
           </div>
 
           <div class="doc-section">
+            <h3>Configuration (aperçu)</h3>
+            <details class="config-preview">
+              <summary>Voir le fichier config.lua</summary>
+              <pre><code>-- ============================================
+-- JV_SB_HandlingPro - Configuration
+-- ============================================
+-- Système complet de personnalisation du handling des véhicules
+-- Version: 2.0.0
+-- ============================================
+
+Config = {}
+
+-- ============================================
+-- CONFIGURATION GÉNÉRALE
+-- ============================================
+
+-- Commande pour ouvrir le menu de handling
+Config.CommandOpen = 'handling'
+
+-- Touche pour ouvrir le menu (peut être une touche ou un code de touche)
+-- Exemples: 'F7', 'INSERT', 'HOME', ou un code numérique
+Config.KeyOpen = 'F7'
+
+-- ============================================
+-- CONFIGURATION DEBUG
+-- ============================================
+
+Config.Debug = {
+    -- Activer/désactiver les messages de debug globalement
+    enabled = false,
+    
+    -- Afficher les messages de debug côté client
+    client = false,
+    
+    -- Afficher les messages de debug côté serveur
+    server = false
+}
+
+-- ============================================
+-- CONFIGURATION DES NOTIFICATIONS
+-- ============================================
+
+Config.Notifications = {
+    -- Type de notification à utiliser
+    -- Options: 'nui' (recommandé - intégré à l'interface), 'esx', 'okok', 'ox', 'default'
+    type = 'nui',
+    
+    -- Options pour les notifications NUI (intégrées à l'interface)
+    nui = {
+        duration = 5000,        -- Durée d'affichage en millisecondes
+        position = 'top-left'   -- Position: 'top-left', 'top-right', 'bottom-left', 'bottom-right'
+    },
+    
+    -- Options pour okok Notify (si type = 'okok')
+    okok = {
+        position = 'top-right', -- Position: 'top-right', 'top-left', 'bottom-right', 'bottom-left'
+        duration = 5000         -- Durée en millisecondes
+    },
+    
+    -- Options pour ox_lib (si type = 'ox')
+    ox = {
+        type = 'inform',        -- Type: 'success', 'error', 'inform', 'warning'
+        duration = 5000         -- Durée en millisecondes
+    }
+}
+
+-- ============================================
+-- CONFIGURATION DES PERMISSIONS
+-- ============================================
+
+Config.Permissions = {
+    -- Activer la vérification des permissions
+    enabled = true,
+    
+    -- Mode d'autorisation: 'license' (identifiants FiveM) ou 'group' (groupes ESX)
+    mode = 'license',
+
+    -- Identifiants FiveM autorisés à utiliser le menu
+    -- Format: license:0123456789abcdef...
+    allowedFiveMLicenses = {
+        'license:0528613e8fd7e83a3ce9d5ae3c465145dce331d5'
+        -- Ajoutez d'autres identifiants FiveM ici si nécessaire
+    },
+
+    -- Groupes ESX autorisés (utilisé si mode = 'group')
+    allowedGroups = {
+        'admin',
+        'superadmin'
+        -- Ajoutez d'autres groupes ici si nécessaire
+        -- 'moderator',
+        -- 'support'
+    }
+}
+
+-- ============================================
+-- CONFIGURATION DU LOGO
+-- ============================================
+
+Config.Logo = {
+    -- Activer/désactiver l'affichage du logo
+    enabled = true,
+    
+    -- URL de l'image du logo (peut être une URL externe ou un chemin local)
+    url = 'https://zupimages.net/up/25/47/f2eb.png',
+    
+    -- Utiliser le logo SVG par défaut si l'image ne charge pas
+    useDefaultSvg = true
+}
+
+-- ============================================
+-- CONFIGURATION BOÎTE MANUELLE
+-- ============================================
+
+Config.ManualTransmission = {
+    -- Activer/désactiver la boîte manuelle
+    enabled = false,
+    
+    -- Afficher les contrôles de boîte manuelle dans l'interface
+    showInInterface = false,
+    
+    -- Vitesse par défaut au démarrage
+    defaultGear = 1,
+    
+    -- Touche pour monter de vitesse (code de touche)
+    -- 38 = E
+    shiftUpKey = 38,
+    
+    -- Touche pour descendre de vitesse (code de touche)
+    -- 47 = G
+    shiftDownKey = 47,
+    
+    -- Touche pour activer/désactiver la boîte manuelle (optionnel)
+    -- Peut être une touche ('L', 'M') ou un code numérique
+    toggleKey = 'L',
+    
+    -- Touche d'embrayage (non utilisé actuellement)
+    clutchKey = 21,  -- LEFT SHIFT
+    
+    -- Embrayage automatique (non utilisé actuellement)
+    autoClutch = true,
+    
+    -- RPM pour monter de vitesse (non utilisé actuellement)
+    rpmShiftUp = 0.85,
+    
+    -- RPM pour descendre de vitesse (non utilisé actuellement)
+    rpmShiftDown = 0.3
+}
+
+-- ============================================
+-- PARAMÈTRES DE HANDLING MODIFIABLES
+-- ============================================
+-- Tous les paramètres que les joueurs peuvent modifier via l'interface
+-- ============================================
+
+Config.HandlingSettings = {
+    -- ========================================
+    -- PERFORMANCE
+    -- ========================================
+    {
+        name = "Vitesse Maximale",
+        key = "topSpeed",
+        min = 0.5,
+        max = 3.0,
+        default = 1.0,
+        step = 0.01,
+        category = "performance",
+        description = "Multiplicateur de vitesse maximale (1.0 = normal)"
+    },
+    {
+        name = "Accélération",
+        key = "acceleration",
+        min = 0.1,
+        max = 3.0,
+        default = 1.0,
+        step = 0.01,
+        category = "performance",
+        description = "Multiplicateur d'accélération"
+    },
+    {
+        name = "Puissance Moteur",
+        key = "enginePower",
+        min = 0.1,
+        max = 3.0,
+        default = 1.0,
+        step = 0.01,
+        category = "performance",
+        description = "Puissance du moteur"
+    },
+    
+    -- ========================================
+    -- FREINAGE
+    -- ========================================
+    {
+        name = "Force de Freinage",
+        key = "brakeForce",
+        min = 0.1,
+        max = 3.0,
+        default = 1.0,
+        step = 0.01,
+        category = "braking",
+        description = "Force de freinage"
+    },
+    
+    -- ========================================
+    -- SUSPENSION
+    -- ========================================
+    {
+        name = "Raideur Suspension",
+        key = "suspensionStiffness",
+        min = 0.1,
+        max = 2.0,
+        default = 1.0,
+        step = 0.01,
+        category = "suspension",
+        description = "Raideur de la suspension"
+    },
+    {
+        name = "Hauteur Suspension",
+        key = "suspensionHeight",
+        min = -0.2,
+        max = 0.2,
+        default = 0.0,
+        step = 0.01,
+        category = "suspension",
+        description = "Hauteur de la suspension"
+    },
+    
+    -- ========================================
+    -- TRACTION
+    -- ========================================
+    {
+        name = "Traction",
+        key = "traction",
+        min = 0.1,
+        max = 2.0,
+        default = 1.0,
+        step = 0.01,
+        category = "traction",
+        description = "Traction du véhicule"
+    },
+    {
+        name = "Traction Biais",
+        key = "tractionBias",
+        min = 0.0,
+        max = 1.0,
+        default = 0.5,
+        step = 0.01,
+        category = "traction",
+        description = "Biais de traction (0 = arrière, 1 = avant)"
+    },
+    
+    -- ========================================
+    -- MASSE ET CENTRE DE GRAVITÉ
+    -- ========================================
+    {
+        name = "Poids / Stabilité",
+        key = "mass",
+        min = 800.0,
+        max = 3500.0,
+        default = 1500.0,
+        step = 10.0,
+        category = "mass",
+        description = "Stabilité du véhicule (agit sur le centre de gravité, sans toucher fMass)"
+    },
+    {
+        name = "Centre de Gravité X",
+        key = "centreOfMassX",
+        min = -2.0,
+        max = 2.0,
+        default = 0.0,
+        step = 0.01,
+        category = "mass",
+        description = "Centre de gravité X"
+    },
+    {
+        name = "Centre de Gravité Y",
+        key = "centreOfMassY",
+        min = -2.0,
+        max = 2.0,
+        default = 0.0,
+        step = 0.01,
+        category = "mass",
+        description = "Centre de gravité Y"
+    },
+    {
+        name = "Centre de Gravité Z",
+        key = "centreOfMassZ",
+        min = -2.0,
+        max = 2.0,
+        default = 0.0,
+        step = 0.01,
+        category = "mass",
+        description = "Centre de gravité Z"
+    },
+    
+    -- ========================================
+    -- TRANSMISSION
+    -- ========================================
+    {
+        name = "Nombre de Vitesses",
+        key = "gears",
+        min = 1,
+        max = 7,
+        default = 5,
+        step = 1,
+        category = "transmission",
+        description = "Nombre de vitesses de la boîte"
+    }
+}
+
+-- ============================================
+-- CATÉGORIES DE PARAMÈTRES
+-- ============================================
+-- Définit les catégories et leurs icônes pour l'interface
+-- ============================================
+
+Config.Categories = {
+    performance = {
+        name = "Performance",
+        icon = "⚡"
+    },
+    braking = {
+        name = "Freinage",
+        icon = "🛑"
+    },
+    suspension = {
+        name = "Suspension",
+        icon = "🔧"
+    },
+    traction = {
+        name = "Traction",
+        icon = "🏎️"
+    },
+    mass = {
+        name = "Masse",
+        icon = "⚖️"
+    },
+    transmission = {
+        name = "Transmission",
+        icon = "⚙️"
+    }
+}
+
+-- ============================================
+-- VÉHICULES EXCLUS
+-- ============================================
+-- Liste des modèles de véhicules qui ne peuvent pas être modifiés
+-- Ajoutez les modèles à exclure ici (ex: véhicules spéciaux, avions, etc.)
+-- ============================================
+
+Config.ExcludedVehicles = {
+    -- Exemples (décommentez pour activer):
+    -- "rhino",      -- Char d'assaut
+    -- "lazer",      -- Avion de chasse
+    -- "hydra",      -- Avion de chasse VTOL
+    -- "oppressor",  -- Motocyclette volante
+    -- "oppressor2", -- Motocyclette volante MK2
+}
+
+-- ============================================
+-- CONFIGURATION SERVEUR (SQL)
+-- ============================================
+
+-- Exécuter automatiquement le fichier SQL au démarrage du serveur
+-- Si true: Les tables seront créées automatiquement si elles n'existent pas
+-- Si false: Vous devrez exécuter manuellement install/database.sql
+Config.AutoRunSQL = true
+
+-- ============================================
+-- FIN DE LA CONFIGURATION
+-- ============================================</code></pre>
+            </details>
+          </div>
+
+          <div class="doc-section">
             <h3>Dépendances</h3>
             <p>ESX recommandé. Vérifiez la compatibilité avec vos autres scripts véhicules.</p>
           </div>
