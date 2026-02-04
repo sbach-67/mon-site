@@ -453,6 +453,11 @@ body::before {
   color: var(--muted);
 }
 
+.external-icon {
+  font-size: 12px;
+  color: var(--muted);
+}
+
 footer {
   margin-top: auto;
   padding: 24px 0 40px;
