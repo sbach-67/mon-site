@@ -1,5 +1,0 @@
-services:
-  - type: web
-    name: jvsb-site
-    env: static
-    staticPublishPath: .
