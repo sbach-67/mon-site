@@ -2,7 +2,7 @@
 
 
 
-1 cd C:\Users\badou\Desktop\JV_SB_SOSO_MANAGEUR
+1 cd C:\Users\badou\Desktop\jv_sb-documentation
 
 2 npm init -y
 
@@ -12,7 +12,7 @@
 
 5 et 6 derniere Etape
 
-5 cd C:\Users\badou\Downloads\JV_SB_SOSO_MANAGEUR
+5 cd C:\Users\badou\Downloads\jv_sb-documentation
 
 6 npm install
 
